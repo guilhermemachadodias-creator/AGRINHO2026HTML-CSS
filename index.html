@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroParaná — Plataforma Agrícola</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ACESSIBILIDADE -->
+    <div class="a11y-bar" role="toolbar" aria-label="Acessibilidade">
+        <button onclick="changeFont(1)" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <button onclick="changeFont(-1)" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button onclick="toggleContrast()" title="Alto contraste" aria-label="Alternar alto contraste">◐</button>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg">
+            <img src="https://picsum.photos/id/1015/1920/1080" alt="Campo agrícola paranaense ao entardecer">
+        </div>
+        <div class="hero-overlay">
+            <div class="hero-inner">
+                <div class="logo">
+                    <i class="fas fa-seedling" aria-hidden="true"></i>
+                    <span>AgroParaná</span>
+                </div>
+                <p class="hero-tagline">Gestão técnica para o agronegócio paranaense</p>
+                <div class="hero-meta">
+                    <span>Semeadura</span>
+                    <span class="sep">·</span>
+                    <span>Adubação</span>
+                    <span class="sep">·</span>
+                    <span>Irrigação</span>
+                    <span class="sep">·</span>
+                    <span>Custos</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="tabs" role="tablist" aria-label="Seções da plataforma">
+        <button class="tab-btn active" role="tab" aria-selected="true"  onclick="openTab(0, this)">
+            <i class="fas fa-home" aria-hidden="true"></i><span>Início</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(1, this)">
+            <i class="fas fa-seedling" aria-hidden="true"></i><span>Semeadura</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(2, this)">
+            <i class="fas fa-leaf" aria-hidden="true"></i><span>Adubação</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(3, this)">
+            <i class="fas fa-tint" aria-hidden="true"></i><span>Irrigação</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(4, this)">
+            <i class="fas fa-dollar-sign" aria-hidden="true"></i><span>Custos</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(5, this)">
+            <i class="fas fa-chart-bar" aria-hidden="true"></i><span>Dashboard</span>
+        </button>
+    </nav>
+
+    <main>
+
+        <!-- INÍCIO -->
+        <section class="tab-panel active" id="panel-0" role="tabpanel">
+            <div class="home-wrap">
+
+                <div class="home-heading">
+                    <h1>Plataforma inteligente<br>para o campo paranaense</h1>
+                    <p>Calcule, planeje e gerencie sua produção agrícola com ferramentas técnicas precisas — desenvolvida para os 399 municípios do Paraná.</p>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-number counter" data-target="5000000">0</span>
+                        <span class="stat-label">Hectares cultivados no Paraná</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number counter" data-target="399">0</span>
+                        <span class="stat-label">Municípios atendidos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number counter" data-target="4">0</span>
+                        <span class="stat-label">Ferramentas técnicas</span>
+                    </div>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card" onclick="openTab(1, document.querySelectorAll('.tab-btn')[1])">
+                        <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+                        <h3>Semeadura</h3>
+                        <p>Calcule com precisão o volume total de sementes por área cultivada.</p>
+                        <span class="feature-cta">Calcular <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="feature-card" onclick="openTab(2, document.querySelectorAll('.tab-btn')[2])">
+                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Adubação</h3>
+                        <p>Determine o total de fertilizante necessário com base na dose e área.</p>
+                        <span class="feature-cta">Calcular <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="feature-card" onclick="openTab(3, document.querySelectorAll('.tab-btn')[3])">
+                        <div class="feature-icon"><i class="fas fa-tint"></i></div>
+                        <h3>Irrigação</h3>
+                        <p>Estime o volume de água por lâmina e hectare de forma rápida.</p>
+                        <span class="feature-cta">Calcular <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="feature-card" onclick="openTab(4, document.querySelectorAll('.tab-btn')[4])">
+                        <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <h3>Custos Agrícolas</h3>
+                        <p>Projete o custo total da safra por hectare antes de começar.</p>
+                        <span class="feature-cta">Calcular <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEMEADURA -->
+        <section class="tab-panel" id="panel-1" role="tabpanel">
+            <div class="tool-wrap">
+                <div class="tool-header">
+                    <div class="tool-badge"><i class="fas fa-seedling"></i></div>
+                    <div>
+                        <h2>Semeadura</h2>
+                        <p class="tool-desc">Calcule o total de sementes necessário para sua área de plantio.</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="field-group">
+                        <label for="area">Área de plantio</label>
+                        <div class="input-wrap">
+                            <input id="area" type="number" min="0" step="0.1" placeholder="0,00">
+                            <span class="unit">ha</span>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label for="sementes">Sementes por hectare</label>
+                        <div class="input-wrap">
+                            <input id="sementes" type="number" min="0" step="1" placeholder="0">
+                            <span class="unit">sem/ha</span>
+                        </div>
+                    </div>
+                    <button class="btn-calc" onclick="calcularSemeadura()">
+                        <i class="fas fa-calculator"></i> Calcular
+                    </button>
+                    <div id="resultadoSemeadura" class="result-box" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADUBAÇÃO -->
+        <section class="tab-panel" id="panel-2" role="tabpanel">
+            <div class="tool-wrap">
+                <div class="tool-header">
+                    <div class="tool-badge green"><i class="fas fa-leaf"></i></div>
+                    <div>
+                        <h2>Adubação</h2>
+                        <p class="tool-desc">Calcule o total de fertilizante com base na área e dose recomendada.</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="field-group">
+                        <label for="adubacaoArea">Área de aplicação</label>
+                        <div class="input-wrap">
+                            <input id="adubacaoArea" type="number" min="0" step="0.1" placeholder="0,00">
+                            <span class="unit">ha</span>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label for="dose">Dose de fertilizante</label>
+                        <div class="input-wrap">
+                            <input id="dose" type="number" min="0" step="0.1" placeholder="0,00">
+                            <span class="unit">kg/ha</span>
+                        </div>
+                    </div>
+                    <button class="btn-calc" onclick="calcularAdubacao()">
+                        <i class="fas fa-calculator"></i> Calcular
+                    </button>
+                    <div id="resultadoAdubacao" class="result-box" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IRRIGAÇÃO -->
+        <section class="tab-panel" id="panel-3" role="tabpanel">
+            <div class="tool-wrap">
+                <div class="tool-header">
+                    <div class="tool-badge blue"><i class="fas fa-tint"></i></div>
+                    <div>
+                        <h2>Irrigação</h2>
+                        <p class="tool-desc">Calcule o volume de água necessário para a lâmina e área definidas.</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="field-group">
+                        <label for="irrigacaoArea">Área irrigada</label>
+                        <div class="input-wrap">
+                            <input id="irrigacaoArea" type="number" min="0" step="0.1" placeholder="0,00">
+                            <span class="unit">ha</span>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label for="lamina">Lâmina de água</label>
+                        <div class="input-wrap">
+                            <input id="lamina" type="number" min="0" step="0.1" placeholder="0,00">
+                            <span class="unit">mm</span>
+                        </div>
+                    </div>
+                    <button class="btn-calc" onclick="calcularIrrigacao()">
+                        <i class="fas fa-calculator"></i> Calcular
+                    </button>
+                    <div id="resultadoIrrigacao" class="result-box" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOS -->
+        <section class="tab-panel" id="panel-4" role="tabpanel">
+            <div class="tool-wrap">
+                <div class="tool-header">
+                    <div class="tool-badge gold"><i class="fas fa-dollar-sign"></i></div>
+                    <div>
+                        <h2>Custos Agrícolas</h2>
+                        <p class="tool-desc">Projete o custo total da operação multiplicando o valor por hectare pela área.</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="field-group">
+                        <label for="custoHa">Custo por hectare</label>
+                        <div class="input-wrap">
+                            <span class="unit prefix">R$</span>
+                            <input id="custoHa" type="number" min="0" step="0.01" placeholder="0,00" class="has-prefix">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label for="areaCusto">Área total</label>
+                        <div class="input-wrap">
+                            <input id="areaCusto" type="number" min="0" step="0.1" placeholder="0,00">
+                            <span class="unit">ha</span>
+                        </div>
+                    </div>
+                    <button class="btn-calc" onclick="calcularCustos()">
+                        <i class="fas fa-calculator"></i> Calcular
+                    </button>
+                    <div id="resultadoCustos" class="result-box" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section class="tab-panel" id="panel-5" role="tabpanel">
+            <div class="dash-wrap">
+
+                <div class="dash-header">
+                    <h2>Dashboard da Safra</h2>
+                    <p>Resumo consolidado de todos os cálculos realizados nesta sessão.</p>
+                </div>
+
+                <div id="dash-empty" class="dash-empty">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>Nenhum cálculo realizado ainda.<br>Use as ferramentas para gerar dados.</p>
+                </div>
+
+                <div id="dash-cards" class="dash-cards" hidden>
+                    <div class="dash-card" id="dc-sementes">
+                        <div class="dc-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="dc-data">
+                            <span class="dc-label">Sementes necessárias</span>
+                            <span class="dc-value" id="dv-sementes">—</span>
+                        </div>
+                        <div class="dc-bar"><div class="dc-fill" id="df-sementes"></div></div>
+                    </div>
+                    <div class="dash-card" id="dc-adubo">
+                        <div class="dc-icon green"><i class="fas fa-leaf"></i></div>
+                        <div class="dc-data">
+                            <span class="dc-label">Fertilizante total</span>
+                            <span class="dc-value" id="dv-adubo">—</span>
+                        </div>
+                        <div class="dc-bar"><div class="dc-fill green" id="df-adubo"></div></div>
+                    </div>
+                    <div class="dash-card" id="dc-irrigacao">
+                        <div class="dc-icon blue"><i class="fas fa-tint"></i></div>
+                        <div class="dc-data">
+                            <span class="dc-label">Volume de irrigação</span>
+                            <span class="dc-value" id="dv-irrigacao">—</span>
+                        </div>
+                        <div class="dc-bar"><div class="dc-fill blue" id="df-irrigacao"></div></div>
+                    </div>
+                    <div class="dash-card" id="dc-custos">
+                        <div class="dc-icon gold"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="dc-data">
+                            <span class="dc-label">Custo total da safra</span>
+                            <span class="dc-value" id="dv-custos">—</span>
+                        </div>
+                        <div class="dc-bar"><div class="dc-fill gold" id="df-custos"></div></div>
+                    </div>
+                </div>
+
+                <div id="dash-note" class="dash-note" hidden>
+                    <i class="fas fa-info-circle"></i>
+                    Os dados são da sessão atual. Novos cálculos atualizam o painel automaticamente.
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-logo"><i class="fas fa-seedling"></i> AgroParaná</span>
+            <span>Plataforma Agrícola do Paraná · 2026</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
